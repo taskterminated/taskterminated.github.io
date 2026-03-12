@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lab 4 - Your Store Name</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="container mt-4">
+      <p id="greeting"></p>
+      <p id="orderDetails"></p>
+      <p id="arrivalDate"></p>
+    </div>
+
+    <script>
+      alert("Welcome to my store!");
+
+      var name = prompt("What is your name?");
+      var item = prompt("What item would you like to order?");
+      var quantity = prompt("How many would you like to order? (1-99 only)");
+
+      var hour = new Date().getHours();
+      var timeGreeting;
+
+      if (hour < 12) {
+        timeGreeting = "Good Morning";
+      } else if (hour < 18) {
+        timeGreeting = "Good Afternoon";
+      } else {
+        timeGreeting = "Good Evening";
+      }
+
+      var today = new Date();
+      var arrival = new Date();
+      arrival.setDate(today.getDate() + 7);
+
+      var arrivalDate = arrival.toLocaleDateString();
+
+      document.getElementById("greeting").innerHTML = timeGreeting + " " + name + ", your order has been confirmed";
+      document.getElementById("orderDetails").innerHTML = "You ordered " + quantity + " " + item + "(s).";
+      document.getElementById("arrivalDate").innerHTML = "Order expected to arrive by: " + arrivalDate;
+    </script>
+
+  </body>
+</html>
